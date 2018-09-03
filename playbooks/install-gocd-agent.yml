@@ -1,0 +1,7 @@
+---
+- hosts: raspberries
+  remote_user: pi
+  
+  tasks:
+  - name: update
+...

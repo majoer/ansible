@@ -1,0 +1,15 @@
+---
+- hosts: raspberries
+  remote_user: pi
+  become: true
+  tasks:
+  - name: Install nginx
+    apt:
+      name: nginx-light
+      update_cache: true
+  - name: Set user 'gocd' as owner of html root
+    file:
+      path: /var/www/html
+      owner: gocd
+      recurse: yes
+...

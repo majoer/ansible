@@ -1,0 +1,11 @@
+---
+- hosts: raspberries
+  remote_user: pi
+  become: yes
+  tasks:
+  - name: apt update
+    apt:
+      update_cache: yes
+  - name: apt upgrade
+    apt:
+      upgrade: full

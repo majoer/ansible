@@ -1,0 +1,9 @@
+- hosts: raspberries
+  remote_user: pi
+  become: yes
+  tasks:
+  - name: Install headless openjdk-8-jre
+    apt:
+      name: openjdk-8-jre-headless
+      state: latest
+      update_cache: yes
