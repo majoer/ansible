@@ -1,0 +1,25 @@
+- name: Install git
+  apt:
+    name: git
+    state: latest
+
+- name: Configure git - Set name
+  become_user: "{{ for_user }}"
+  git_config:
+    name: user.name
+    scope: global
+    value: Jørgensen, Mats
+
+- name: Configure git - Set email
+  become_user: "{{ for_user }}"
+  git_config:
+    name: user.email
+    scope: global
+    value: matsjoer@gmail.com
+
+- name: Configure git - Set editor
+  become_user: "{{ for_user }}"
+  git_config:
+    name: core.editor
+    scope: global
+    value: vim

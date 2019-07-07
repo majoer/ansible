@@ -1,0 +1,4 @@
+- name: Install snap
+  apt:
+    name: snap
+    state: latest

@@ -1,0 +1,40 @@
+- name: Download antibody
+  become_user: "{{ for_user }}"
+  get_url:
+    url: https://git.io/antibody
+    dest: /tmp/install-antibody.sh
+    mode: u+rwx
+
+- name: Install antibody
+  shell: sh /tmp/install-antibody.sh -b /usr/local/bin
+  args:
+    creates: /usr/local/bin/antibody
+
+- name: Install zsh
+  apt:
+    name: zsh
+    state: latest
+
+- name: Download oh-my-zsh
+  become_user: "{{ for_user }}"
+  get_url:
+    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: /tmp/install-zsh.sh
+    mode: u+rwx
+
+- name: Install oh-my-zsh
+  become_user: "{{ for_user }}"
+  shell: /tmp/install-zsh.sh
+  args:
+    creates: ~/.oh-my-zsh
+
+- name: Configure zsh
+  become_user: "{{ for_user }}"
+  copy:
+    src: configs/zsh/.zshrc
+    dest: ~/.zshrc
+    force: yes
+
+- name: Install zsh plugins
+  become_user: "{{ for_user }}"
+  shell: antibody bundle < configs/zsh/zsh_plugins.txt >> ~/.zsh_plugins.sh

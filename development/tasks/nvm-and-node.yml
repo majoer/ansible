@@ -1,0 +1,20 @@
+- name: Download nvm
+  become_user: "{{ for_user }}"
+  get_url:
+    url: https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh
+    dest: /tmp/install-nvm.sh
+    mode: u+rwx
+
+- name: Install nvm for zsh
+  become_user: "{{ for_user }}"
+  shell: /bin/zsh /tmp/install-nvm.sh
+
+- name: Install nvm for bash
+  become_user: "{{ for_user }}"
+  shell: /bin/bash /tmp/install-nvm.sh
+
+- name: Intall node 10
+  become_user: "{{ for_user }}"
+  shell:  /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 0.10 && nvm alias default 0.10"
+  args: 
+    creates: ~/.nvm/alias

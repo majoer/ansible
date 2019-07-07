@@ -1,0 +1,4 @@
+- name: Install firacode
+  apt:
+    name: fonts-firacode
+    state: latest

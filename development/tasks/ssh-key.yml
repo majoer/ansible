@@ -1,0 +1,11 @@
+- name: Generate a new SSH key
+  become_user: "{{ for_user }}"
+  shell: ssh-keygen -t rsa -b 4096 -f  ~/.ssh/id_rsa -N ""
+  register: generate_new_ssh_key
+  args:
+    creates: ~/.ssh/id_rsa
+
+- name: "Add SSH private key to ssh-agent"
+  become_user: "{{ for_user }}"
+  shell: eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa
+  when: generate_new_ssh_key.changed

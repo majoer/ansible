@@ -1,0 +1,9 @@
+- name: Ensure i3 repo
+  shell: scripts/ensure-i3-repo.sh
+  args:
+    creates: /etc/apt/sources.list.d/sur5r-i3.list
+
+- name: Install i3
+  apt:
+    name: i3
+    state: latest
