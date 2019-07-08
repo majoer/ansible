@@ -15,6 +15,6 @@
 
 - name: Intall node 10
   become_user: "{{ for_user }}"
-  shell:  /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 0.10 && nvm alias default 0.10"
+  shell:  /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 10 && nvm alias default 10"
   args: 
     creates: ~/.nvm/alias
