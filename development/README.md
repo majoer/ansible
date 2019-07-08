@@ -1,7 +1,8 @@
 # Setup development environment
 
-1. Run playbook. "for_user" decides which user to install for.
-2. Enter root password when prompted
+1. If running virtualbox, make sure virtualbox-guest-additions cd is mounted on /cdrom
+2. Run playbook. "for_user" decides which user to install for.
+3. Enter root password when prompted
 
 Example: 
 ```

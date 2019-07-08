@@ -22,4 +22,5 @@
     - import_tasks: tasks/ssh-key.yml
     - import_tasks: tasks/tig.yml
     - import_tasks: tasks/vim.yml
+    - import_tasks: tasks/virtual-box-guest.yml
     - import_tasks: tasks/visual-studio-code.yml

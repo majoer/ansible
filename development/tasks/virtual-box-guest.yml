@@ -1,0 +1,33 @@
+- name: Check if virtualbox
+  shell: dmidecode  | grep -i -c VirtualBox
+  register: is_virtualbox
+  failed_when: is_virtualbox.rc == "2"
+  changed_when: false
+
+- name: Install build-essential
+  when: is_virtualbox.rc == 0
+  apt:
+    name: build-essential
+    state: latest
+
+- name: Install gcc
+  when: is_virtualbox.rc == 0
+  apt:
+    name: gcc
+    state: latest
+
+- name: Install perl
+  when: is_virtualbox.rc == 0
+  apt:
+    name: perl
+    state: latest
+
+- name: Install dkms
+  when: is_virtualbox.rc == 0
+  apt:
+    name: dkms
+    state: latest
+
+- name: Install virtualbox-guest-additions
+  when: is_virtualbox.rc == 0
+  shell: /cdrom/autorun.sh
