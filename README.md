@@ -1,3 +1,5 @@
 # Ansible
 
-[Development Environment (Linux)](development/README.md)
+## Playbooks
+
+- [Development Environment (Linux)](development/)
