@@ -37,4 +37,9 @@
 
 - name: Install zsh plugins
   become_user: "{{ for_user }}"
-  shell: antibody bundle < configs/zsh/zsh_plugins.txt >> ~/.zsh_plugins.sh
+  shell: antibody bundle < configs/zsh/zsh_plugins.txt > ~/.zsh_plugins.sh
+
+- name: Set zsh as default shell
+  user:
+    name: "{{ for_user }}"
+    shell: /usr/bin/zsh
