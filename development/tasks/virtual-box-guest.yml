@@ -28,6 +28,12 @@
     name: dkms
     state: latest
 
+- name: Check if virtualbox-guest-additions is mounted
+  shell: ls /cdrom | grep -i -c VBoxLinuxAdditions.run
+  register: is_additions_mounted
+  failed_when: is_additions_mounted.rc == "2"
+  changed_when: false
+
 - name: Install virtualbox-guest-additions
-  when: is_virtualbox.rc == 0
+  when: is_virtualbox.rc == 0 and is_additions_mounted.rc == 0
   shell: /cdrom/autorun.sh
