@@ -3,3 +3,8 @@
     name: code
     classic: yes
     state: present
+
+- name: Install plugin - Idea Keybindings
+  become_user: "{{ for_user }}"
+  shell: code --install-extension k--kato.intellij-idea-keybindings
+    
