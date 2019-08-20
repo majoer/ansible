@@ -23,3 +23,31 @@
     name: core.editor
     scope: global
     value: vim
+
+- name: Configure git - Alias (co)
+  become_user: "{{ for_user }}"
+  git_config:
+    name: alias.co
+    scope: global
+    value: checkout
+
+- name: Configure git - Alias (ci)
+  become_user: "{{ for_user }}"
+  git_config:
+    name: alias.ci
+    scope: global
+    value: commit
+
+- name: Configure git - Alias (br)
+  become_user: "{{ for_user }}"
+  git_config:
+    name: alias.br
+    scope: global
+    value: branch
+
+- name: Configure git - Alias (st)
+  become_user: "{{ for_user }}"
+  git_config:
+    name: alias.st
+    scope: global
+    value: status
