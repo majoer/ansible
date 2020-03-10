@@ -1,0 +1,27 @@
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  become_user: root
+  tasks:
+    - name: Update and upgrade apt packages
+      apt: 
+        update_cache: yes
+        upgrade: yes
+
+    - import_tasks: tasks/common/snap.yml
+    - import_tasks: tasks/common/zsh.yml
+
+    - import_tasks: tasks/ubuntu/chromium.yml
+    - import_tasks: tasks/common/curl.yml
+    - import_tasks: tasks/ubuntu/firacode.yml
+    - import_tasks: tasks/common/git.yml
+    - import_tasks: tasks/ubuntu/i3.yml
+    - import_tasks: tasks/ubuntu/java.yml
+    - import_tasks: tasks/common/nvm-and-node.yml
+    - import_tasks: tasks/common/postman.yml
+    - import_tasks: tasks/common/slack.yml
+    - import_tasks: tasks/common/ssh-key.yml
+    - import_tasks: tasks/common/tig.yml
+    - import_tasks: tasks/common/vim.yml
+    - import_tasks: tasks/ubuntu/virtual-box-guest.yml
+    - import_tasks: tasks/common/visual-studio-code.yml

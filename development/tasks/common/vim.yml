@@ -1,4 +1,4 @@
 - name: Install vim
-  apt:
+  package:
     name: vim
     state: latest

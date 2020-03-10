@@ -1,4 +1,4 @@
 - name: Install tig
-  apt:
+  package:
     name: tig
     state: latest

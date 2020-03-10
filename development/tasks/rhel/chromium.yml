@@ -1,0 +1,4 @@
+- name: Install chromium
+  yum:
+    name: chromium
+    state: latest
