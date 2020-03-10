@@ -1,0 +1,28 @@
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  become_user: root
+  tasks:
+    - name: Update yum packages
+      yum: 
+        update_cache: yes
+    - name: Update dnf packages
+      dnf:
+        update_cache: yes
+
+    - import_tasks: tasks/common/snap.yml
+    - import_tasks: tasks/common/zsh.yml
+    
+    - import_tasks: tasks/rhel/chromium.yml
+    - import_tasks: tasks/common/curl.yml
+    - import_tasks: tasks/rhel/firacode.yml
+    - import_tasks: tasks/common/git.yml
+    #- import_tasks: tasks/rhel/i3.yml i3 how to install??
+    - import_tasks: tasks/rhel/java.yml
+    - import_tasks: tasks/common/nvm-and-node.yml
+    - import_tasks: tasks/common/postman.yml
+    - import_tasks: tasks/common/slack.yml
+    - import_tasks: tasks/common/ssh-key.yml
+    - import_tasks: tasks/common/tig.yml
+    - import_tasks: tasks/common/vim.yml
+    - import_tasks: tasks/common/visual-studio-code.yml

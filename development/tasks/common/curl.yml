@@ -1,4 +1,4 @@
 - name: Install curl
-  apt:
+  package:
     name: curl
     state: latest

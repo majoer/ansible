@@ -1,4 +1,4 @@
 - name: Install slack
-  apt:
+  snap:
     name: slack
-    state: latest
+    state: present
