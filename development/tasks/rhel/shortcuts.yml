@@ -1,0 +1,3 @@
+- name: Add gnome shortcuts
+  become_user: "{{ for_user }}"
+  shell: scripts/add-gnome-workspace-shortcuts.sh

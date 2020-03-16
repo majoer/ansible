@@ -10,6 +10,7 @@
       dnf:
         update_cache: yes
 
+    - import_tasks: tasks/rhel/shortcuts.yml
     - import_tasks: tasks/common/snap.yml
     - import_tasks: tasks/common/zsh.yml
     
