@@ -21,7 +21,6 @@
     - import_tasks: tasks/rhel/java.yml
     - import_tasks: tasks/common/nvm-and-node.yml
     - import_tasks: tasks/common/postman.yml
-    - import_tasks: tasks/common/slack.yml
     - import_tasks: tasks/common/ssh-key.yml
     - import_tasks: tasks/common/tig.yml
     - import_tasks: tasks/common/vim.yml

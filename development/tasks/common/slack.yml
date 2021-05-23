@@ -1,4 +1,0 @@
-- name: Install slack
-  snap:
-    name: slack
-    state: present
